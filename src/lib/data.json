@@ -1,0 +1,45 @@
+{
+  "names": [
+    "David",
+    "Nate",
+    "Seth",
+    "Jamie",
+    "Addie",
+    "Rachel",
+    "Emily",
+    "Ryan",
+    "Carson",
+    "Meleah",
+    "Wyatt",
+    "Brooky"
+  ],
+  "songs": [
+    "Bohemian Rhapsody - Queen",
+    "Dancing Queen - ABBA",
+    "I Will Survive - Gloria Gaynor",
+    "Like a Prayer - Madonna",
+    "Don't Stop Believin' - Journey",
+    "Sweet Child O' Mine - Guns N' Roses",
+    "Livin' on a Prayer - Bon Jovi",
+    "Wonderwall - Oasis",
+    "Hotel California - Eagles",
+    "Eye of the Tiger - Survivor",
+    "Shake It Off - Taylor Swift",
+    "Rolling in the Deep - Adele",
+    "Uptown Funk - Mark Ronson ft. Bruno Mars",
+    "Havana - Camila Cabello",
+    "Shape of You - Ed Sheeran",
+    "Summer Nights - From Grease",
+    "Shallow - Lady Gaga & Bradley Cooper",
+    "I Got You Babe - Sonny & Cher",
+    "Wannabe - Spice Girls",
+    "Old Town Road - Lil Nas X ft. Billy Ray Cyrus"
+  ],
+  "riggedSongs": {
+    "David": ["My Heart Will Go On", "Wrecking ball"],
+    "Nate": ["Bubbly", "Baby"],
+    "Seth": ["Never Gonna Give You Up"],
+    "Jamie": ["You Make Me Feel Like Dancing"],
+    "Addie": ["You Make Me Feel Like Dancing"]
+  }
+}
