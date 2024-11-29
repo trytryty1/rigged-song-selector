@@ -22,11 +22,17 @@ export default function Home() {
   const selectedNameIndex = useRef(null);
   const currentNameIndex = useRef(null);
   const usedSongs = useRef([]);
+  const [usedNamesState, setUsedNamesState] = useState([]);
   const usedRiggedSongs = useRef([]);
   const usedNames = useRef([]);
   const [selectingSong, setSelectingSong] = useState(false);
   const [selectedSong, setSelectedSong] = useState(false);
   const [backgroundImage, setBackgroundImage] = useState("");
+
+  useEffect(() => {
+    console.log("used songs: ", usedNames.current);
+    setUsedNamesState(usedNames.current);
+  }, [usedNames.current]);
 
   const getRandomNewNameIndex = () => {
     // Make sure there are names that have not been selected
@@ -94,6 +100,8 @@ export default function Home() {
     const nameIndex = getRandomNewNameIndex();
     const song = getNewRiggedSongForName(getNameFromIndex(nameIndex));
 
+    setSelectedSong(song);
+    getFirstImageForSong(song).then((src) => setBackgroundImage(src));
     console.log("name: ", getNameFromIndex(nameIndex));
     console.log("song: ", song);
 
@@ -105,8 +113,6 @@ export default function Home() {
       setTimeout(() => {
         if (currentNameIndex.current === selectedNameIndex.current) {
           setSelectingName(false);
-          setSelectedSong(song);
-          getFirstImageForSong(song).then((src) => setBackgroundImage(src));
         } else {
           currentNameIndex.current = currentNameIndex.current + 1;
           setCurrentHighlighted(currentNameIndex.current % names.length);
@@ -124,7 +130,10 @@ export default function Home() {
       <div className="flex flex-col items-center p-5 w-1/2 m-3 text-2xl">
         <img src={backgroundImage} className="flex-1 m-5" alt="" />
         <div className="flex flex-col items-center bg-black shadow-glowFrame shadow-white rounded-full p-4 px-8">
-          <p style={{ textShadow: "0 0 15px, 0 0 25px" }} className="font-bold animate-glow text-pink-500">
+          <p
+            style={{ textShadow: "0 0 15px, 0 0 25px" }}
+            className="font-bold animate-glow text-pink-500"
+          >
             {selectedSong}
           </p>
         </div>
@@ -139,7 +148,7 @@ export default function Home() {
               index === currentHighlighted
                 ? "bg-pink-500 animate-bounce shadow-glowFrame opacity-100 "
                 : " opacity-90"
-            }`}
+            } ${usedNamesState.includes(name) ? "hidden" : ""} `}
           >
             {name}
           </div>
